@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wiki Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="blur-circle circle-1"></div>
+        <div class="blur-circle circle-2"></div>
+        
+        <div class="dashboard-container">
+            <!-- Header with back button -->
+            <div class="header">
+                <div class="brand">
+                    <a href="dashboard.html" class="back-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <i class="fas fa-book brand-icon"></i>
+                    <span>Wiki Guide</span>
+                </div>
+                <div class="user-info">
+                    <div class="coins">
+                        <i class="fas fa-coins"></i>
+                        <span>1,500</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid-layout">
+                <!-- Fishing Guide -->
+                <a href="/wiki/fishing" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-fish icon"></i>
+                            </div>
+                            <h2>Fishing</h2>
+                            <p>Fish types & locations</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+
+                <!-- Mining Guide -->
+                <a href="/wiki/mining" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-gem icon"></i>
+                            </div>
+                            <h2>Mining</h2>
+                            <p>Ores & minerals</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+
+                <!-- Farming Guide -->
+                <a href="/wiki/farming" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-seedling icon"></i>
+                            </div>
+                            <h2>Farming</h2>
+                            <p>Crops & seasons</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

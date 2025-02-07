@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard - Sea Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="blur-circle circle-1"></div>
+        <div class="blur-circle circle-2"></div>
+        
+        <div class="dashboard-container">
+            <!-- Header -->
+            <div class="header">
+                <div class="brand">
+                    <i class="fas fa-shapes brand-icon"></i>
+                    <span>Sea</span>
+                </div>
+                <div class="user-info">
+                    <div class="coins">
+                        <i class="fas fa-coins"></i>
+                        <span>0</span>
+                    </div>
+                    <button onclick="logout()" class="logout-button">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Card -->
+            <a href="setprofile.html" class="profile-link">
+                <div class="profile-card">
+                    <div class="profile-pic">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2 class="profile-name">Loading...</h2>
+                </div>
+            </a>
+
+            <!-- Grid Layout -->
+            <div class="grid-layout">
+                <!-- News Card -->
+                <a href="/news" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-newspaper icon"></i>
+                            </div>
+                            <h2>News</h2>
+                            <p>Latest updates</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+
+                <!-- Wiki Card -->
+                <a href="wiki.html" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-book icon"></i>
+                            </div>
+                            <h2>Wiki</h2>
+                            <p>Game guides</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+
+                <!-- Shop Card -->
+                <a href="/shop" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-shopping-bag icon"></i>
+                            </div>
+                            <h2>Shop</h2>
+                            <p>Special offers</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+
+                <!-- Gacha Card -->
+                <a href="/gacha" class="card-link">
+                    <div class="menu-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-dice icon"></i>
+                            </div>
+                            <h2>Gacha</h2>
+                            <p>Try your luck!</p>
+                        </div>
+                        <div class="card-indicator"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="auth.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
