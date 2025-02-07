@@ -506,6 +506,84 @@
     }
 }
 
+/* Rarity Card Color Variations */
+.rarity-card.common .rarity-icon {
+    background: linear-gradient(135deg, #6B7280, #4B5563);
+}
+
+.rarity-card.uncommon .rarity-icon {
+    background: linear-gradient(135deg, #059669, #10B981);
+}
+
+.rarity-card.rare .rarity-icon {
+    background: linear-gradient(135deg, #2563EB, #3B82F6);
+}
+
+.rarity-card.epic .rarity-icon {
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
+}
+
+.rarity-card.legendary .rarity-icon {
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+}
+
+.rarity-card.mythic .rarity-icon {
+    background: linear-gradient(135deg, #E11D48, #F43F5E);
+}
+
+.rarity-card.secret .rarity-icon {
+    background: linear-gradient(135deg, #000000, #4A4A4A);
+}
+
+/* Fish Card Rarity Text Colors */
+.fish-info .rarity.common { color: #6B7280; }
+.fish-info .rarity.uncommon { color: #059669; }
+.fish-info .rarity.rare { color: #2563EB; }
+.fish-info .rarity.epic { color: #7C3AED; }
+.fish-info .rarity.legendary { color: #D97706; }
+.fish-info .rarity.mythic { color: #E11D48; }
+.fish-info .rarity.secret { 
+    color: #ff0000; 
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Secret Rarity Special Star Styling */
+.rarity-card.secret .rarity-icon i {
+    color: red;
+    text-shadow: 0 0 5px rgba(255,0,0,0.5);
+}
+
+/* Colored Fish Icons */
+.fish-card[data-rarity="common"] .fish-image {
+    background: linear-gradient(135deg, #6B7280, #4B5563);
+}
+
+.fish-card[data-rarity="uncommon"] .fish-image {
+    background: linear-gradient(135deg, #059669, #10B981);
+}
+
+.fish-card[data-rarity="rare"] .fish-image {
+    background: linear-gradient(135deg, #2563EB, #3B82F6);
+}
+
+.fish-card[data-rarity="epic"] .fish-image {
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
+}
+
+.fish-card[data-rarity="legendary"] .fish-image {
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+}
+
+.fish-card[data-rarity="mythic"] .fish-image {
+    background: linear-gradient(135deg, #E11D48, #F43F5E);
+}
+
+.fish-card[data-rarity="secret"] .fish-image {
+    background: linear-gradient(135deg, #000000, #4A4A4A);
+}
+
 /* Country Navigation Styles */
 .country-nav {
     display: flex;

@@ -10,18 +10,202 @@ document.addEventListener('DOMContentLoaded', function() {
     const fishData = {
         indonesia: [
             {
-                name: 'Gurame',
+                name: 'Lele',
                 rarity: 'common',
-                description: 'Freshwater fish commonly found in Indonesian ponds',
-                price: 50,
-                weight: '0.5-2'
+                description: '',
+                price: 200
+            },
+            {
+                name: 'Mujair',
+                rarity: 'common',
+                description: '',
+                price: 210,
+            },
+            {
+                name: 'Nila',
+                rarity: 'common',
+                description: '',
+                price: 230,
+            },
+            {
+                name: 'Teri',
+                rarity: 'common',
+                description: '',
+                price: 240,
+            },
+            {
+                name: 'Mas',
+                rarity: 'common',
+                description: '',
+                price: 250,
+            },
+
+            {
+                name: 'Kakap',
+                rarity: 'uncommon',
+                description: '',
+                price: 300,
+            },
+            {
+                name: 'Tenggiri',
+                rarity: 'uncommon',
+                description: '',
+                price: 310,
+            },
+            {
+                name: 'Kerapu',
+                rarity: 'uncommon',
+                description: '',
+                price: 320,
+            },
+            {
+                name: 'Gurame',
+                rarity: 'uncommon',
+                description: '',
+                price: 330,
+            },
+            {
+                name: 'Koi',
+                rarity: 'uncommon',
+                description: '',
+                price: 340,
+            },
+
+            {
+                name: 'Tongkol',
+                rarity: 'rare',
+                description: '',
+                price: 350,
+            },
+            {
+                name: 'Belut',
+                rarity: 'rare',
+                description: '',
+                price: 360,
+            },
+            {
+                name: 'Gabus',
+                rarity: 'rare',
+                description: '',
+                price: 380,
+            },
+            {
+                name: 'Cakalang',
+                rarity: 'rare',
+                description: '',
+                price: 390,
+            },
+            {
+                name: 'Patin',
+                rarity: 'rare',
+                description: '',
+                price: 400,
+            },
+
+            {
+                name: 'Bandeng',
+                rarity: 'epic',
+                description: '',
+                price: 410,
+            },
+            {
+                name: 'Bawal',
+                rarity: 'epic',
+                description: '',
+                price: 420,
+            },
+            {
+                name: 'Sarden',
+                rarity: 'epic',
+                description: '',
+                price: 430,
+            },
+            {
+                name: 'Sidat',
+                rarity: 'epic',
+                description: '',
+                price: 440,
+            },
+            {
+                name: 'Belanak',
+                rarity: 'epic',
+                description: '',
+                price: 450,
+            },
+
+            {
+                name: 'Koi',
+                rarity: 'legendary',
+                description: '',
+                price: 550,
+            },
+            {
+                name: 'Hiu',
+                rarity: 'legendary',
+                description: '',
+                price: 560,
+            },
+            {
+                name: 'Buntal',
+                rarity: 'legendary',
+                description: '',
+                price: 570,
+            },
+            {
+                name: 'Louhan',
+                rarity: 'legendary',
+                description: '',
+                price: 580,
             },
             {
                 name: 'Arwana',
-                rarity: 'uncommon',
-                description: 'Prestigious freshwater fish from Indonesian rivers',
-                price: 500,
-                weight: '2-5'
+                rarity: 'legendary',
+                description: '',
+                price: 600,
+            },
+
+            {
+                name: 'Belida',
+                rarity: 'mythic',
+                description: '',
+                price: 800,
+            },
+            {
+                name: 'Batak',
+                rarity: 'mythic',
+                description: '',
+                price: 840,
+            },
+            {
+                name: 'Semah',
+                rarity: 'mythic',
+                description: '',
+                price: 880,
+            },
+            {
+                name: 'Hiu Gergaji',
+                rarity: 'mythic',
+                description: '',
+                price: 920,
+            },
+            {
+                name: 'Kancra',
+                rarity: 'mythic',
+                description: '',
+                price: 950,
+            },
+
+            {
+                name: 'Balashark',
+                rarity: 'secret',
+                description: '',
+                price: 1100,
+            },
+            {
+                name: 'Megalodon',
+                rarity: 'secret',
+                description: '',
+                price: 1200,
             }
         ],
         malaysia: [
@@ -65,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to generate fish card HTML
     function generateFishCard(fish) {
         return `
-            <div class="fish-card" data-name="${fish.name.toLowerCase()}">
-                <div class="fish-image">
+            <div class="fish-card" data-name="${fish.name.toLowerCase()}" data-rarity="${fish.rarity}">
+                <div class="fish-image rarity-${fish.rarity}">
                     <i class="fas fa-fish"></i>
                 </div>
                 <div class="fish-info">
@@ -75,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="description">${fish.description}</p>
                     <div class="stats">
                         <span><i class="fas fa-coins"></i> ${fish.price}</span>
-                        <span><i class="fas fa-weight-hanging"></i> ${fish.weight} kg</span>
                     </div>
                 </div>
             </div>
