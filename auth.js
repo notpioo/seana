@@ -27,12 +27,12 @@ auth.onAuthStateChanged((user) => {
         console.log('User is signed in:', user);
         if (window.location.pathname.includes('login.html') || 
             window.location.pathname.includes('register.html')) {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         }
     } else {
         // User is signed out
         console.log('User is signed out');
-        if (window.location.pathname.includes('dashboard.html')) {
+        if (window.location.pathname.includes('index.html')) {
             window.location.href = 'login.html';
         }
     }
@@ -107,7 +107,7 @@ if (registerForm) {
             });
 
             // Redirect to dashboard
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error('Registration error:', error);
             showError(error.message);
@@ -126,7 +126,7 @@ if (loginForm) {
 
         try {
             await auth.signInWithEmailAndPassword(email, password);
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error('Login error:', error);
             showError(error.message);
@@ -161,7 +161,7 @@ async function signInWithGoogle() {
             });
         }
 
-        window.location.href = 'dashboard.html';
+        window.location.href = 'index.html';
     } catch (error) {
         console.error('Google sign in error:', error);
         showError(error.message);
@@ -173,10 +173,10 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         if (window.location.pathname.includes('login.html') || 
             window.location.pathname.includes('register.html')) {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         }
     } else {
-        if (window.location.pathname.includes('dashboard.html') || 
+        if (window.location.pathname.includes('index.html') || 
             window.location.pathname.includes('wiki.html')) {
             window.location.href = 'login.html';
         }
