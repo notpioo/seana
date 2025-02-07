@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fishing Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fishing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-wrapper">
+        <div class="blur-circle circle-1"></div>
+        <div class="blur-circle circle-2"></div>
+        
+        <div class="dashboard-container wiki-container">
+            <!-- Header with back button -->
+            <div class="header">
+                <div class="brand">
+                    <a href="wiki.html" class="back-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <i class="fas fa-fish brand-icon"></i>
+                    <span>Fishing Guide</span>
+                </div>
+                <div class="user-info">
+                    <div class="coins">
+                        <i class="fas fa-coins"></i>
+                        <span>1,500</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="wiki-nav">
+                <button class="nav-tab active" data-tab="rarity">
+                    <i class="fas fa-star"></i>
+                    <span>Rarity</span>
+                </button>
+                <button class="nav-tab" data-tab="fish">
+                    <i class="fas fa-fish"></i>
+                    <span>Fish</span>
+                </button>
+                <button class="nav-tab" data-tab="rod">
+                    <i class="fas fa-ruler"></i>
+                    <span>Rod</span>
+                </button>
+                <button class="nav-tab" data-tab="bait">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span>Bait</span>
+                </button>
+                <button class="nav-tab" data-tab="area">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Area</span>
+                </button>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="wiki-content">
+                <!-- Rarity Section -->
+                <div class="content-section active" id="rarity-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-star"></i> Fish Rarity Guide</h2>
+                    </div>
+                    <div class="rarity-grid">
+                        <div class="rarity-card common">
+                            <div class="rarity-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h3>Common</h3>
+                            <p>Basic fish species found everywhere. Easy to catch with any rod and bait.</p>
+                        </div>
+                        <div class="rarity-card uncommon">
+                            <div class="rarity-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h3>Uncommon</h3>
+                            <p>Slightly rarer fish with better rewards. Found in specific areas during certain times.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fish Section -->
+                <div class="content-section" id="fish-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-fish"></i> Fish Species</h2>
+                    </div>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search fish..." id="fishSearch">
+                    </div>
+                    <div class="fish-grid">
+                        <div class="fish-card" data-name="goldfish">
+                            <div class="fish-image">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div class="fish-info">
+                                <h3>Goldfish</h3>
+                                <p class="rarity common">Common</p>
+                                <p class="description">A small, bright orange fish commonly found in ponds.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 50</span>
+                                    <span><i class="fas fa-weight-hanging"></i> 0.2-0.5 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fish-card" data-name="rainbow trout">
+                            <div class="fish-image">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div class="fish-info">
+                                <h3>Rainbow Trout</h3>
+                                <p class="rarity uncommon">Uncommon</p>
+                                <p class="description">A colorful freshwater fish found in cold streams.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 120</span>
+                                    <span><i class="fas fa-weight-hanging"></i> 1-3 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rod Section -->
+                <div class="content-section" id="rod-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-ruler"></i> Fishing Rods</h2>
+                    </div>
+                    <div class="rod-grid">
+                        <div class="rod-card">
+                            <div class="rod-image">
+                                <i class="fas fa-ruler"></i>
+                            </div>
+                            <div class="rod-info">
+                                <h3>Beginner Rod</h3>
+                                <p class="description">Perfect for catching common fish. Durable and easy to use.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 100</span>
+                                    <span><i class="fas fa-star"></i> Level 1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rod-card">
+                            <div class="rod-image">
+                                <i class="fas fa-ruler"></i>
+                            </div>
+                            <div class="rod-info">
+                                <h3>Pro Rod</h3>
+                                <p class="description">Enhanced fishing rod with better catch rates for uncommon fish.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 500</span>
+                                    <span><i class="fas fa-star"></i> Level 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bait Section -->
+                <div class="content-section" id="bait-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-cookie-bite"></i> Fishing Baits</h2>
+                    </div>
+                    <div class="bait-grid">
+                        <div class="bait-card">
+                            <div class="bait-image">
+                                <i class="fas fa-cookie-bite"></i>
+                            </div>
+                            <div class="bait-info">
+                                <h3>Basic Bait</h3>
+                                <p class="description">Standard bait that attracts common fish.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 10</span>
+                                    <span><i class="fas fa-clock"></i> 30s</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bait-card">
+                            <div class="bait-image">
+                                <i class="fas fa-cookie-bite"></i>
+                            </div>
+                            <div class="bait-info">
+                                <h3>Premium Bait</h3>
+                                <p class="description">Special bait that increases chances of uncommon fish.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-coins"></i> 50</span>
+                                    <span><i class="fas fa-clock"></i> 60s</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area Section -->
+                <div class="content-section" id="area-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-map-marker-alt"></i> Fishing Areas</h2>
+                    </div>
+                    <div class="area-grid">
+                        <div class="area-card">
+                            <div class="area-image">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="area-info">
+                                <h3>Peaceful Pond</h3>
+                                <p class="description">Perfect for beginners. Mostly common fish.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-fish"></i> Common Fish</span>
+                                    <span><i class="fas fa-star"></i> Level 1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="area-card">
+                            <div class="area-image">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="area-info">
+                                <h3>Crystal Lake</h3>
+                                <p class="description">Clear waters with a mix of common and uncommon fish.</p>
+                                <div class="stats">
+                                    <span><i class="fas fa-fish"></i> Mixed Fish</span>
+                                    <span><i class="fas fa-star"></i> Level 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="fishing.js"></script>
+</body>
+</html>

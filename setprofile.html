@@ -40,7 +40,15 @@
                 <!-- Avatar Selection -->
                 <div class="avatar-selection">
                     <h3>Select Avatar</h3>
-                    <div class="avatar-grid" id="avatarGrid">
+                    
+                    <!-- Search Box -->
+                    <div class="avatar-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="avatarSearch" placeholder="Search avatars...">
+                    </div>
+
+                    <!-- Avatar Grid Container -->
+                    <div id="avatarGrid" class="avatar-grid">
                         <!-- Avatars will be populated by JavaScript -->
                     </div>
                 </div>
@@ -55,6 +63,7 @@
 
                 <!-- Save Button -->
                 <button id="saveProfileButton" class="save-button">
+                    <i class="fas fa-save"></i>
                     Save Changes
                 </button>
             </div>

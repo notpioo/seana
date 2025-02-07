@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged((user) => {
         // User is signed in
         const db = firebase.firestore();
         
-        // Get username and coins from Firestore
+        // Get username, coins and avatar from Firestore
         db.collection('users').doc(user.uid).get()
             .then((doc) => {
                 if (doc.exists) {
@@ -21,6 +21,12 @@ firebase.auth().onAuthStateChanged((user) => {
                     if (coinsDisplay) {
                         coinsDisplay.textContent = (data.coins || 0).toLocaleString();
                     }
+
+                    // Update avatar
+                    const profilePic = document.querySelector('.profile-pic');
+                    if (profilePic) {
+                        profilePic.innerHTML = `<i class="fas fa-${data.avatar || 'user'}"></i>`;
+                    }
                 }
             })
             .catch((error) => {
@@ -36,7 +42,7 @@ firebase.auth().onAuthStateChanged((user) => {
 function updateUserInfo(user) {
     const db = firebase.firestore();
     
-    // Get username and coins from Firestore
+    // Get username, coins and avatar from Firestore
     db.collection('users').doc(user.uid).get()
         .then((doc) => {
             if (doc.exists) {
@@ -52,6 +58,12 @@ function updateUserInfo(user) {
                 const coinsDisplay = document.querySelector('.coins span');
                 if (coinsDisplay) {
                     coinsDisplay.textContent = (data.coins || 0).toLocaleString();
+                }
+
+                // Update avatar
+                const profilePic = document.querySelector('.profile-pic');
+                if (profilePic) {
+                    profilePic.innerHTML = `<i class="fas fa-${data.avatar || 'user'}"></i>`;
                 }
             }
         })

@@ -1,45 +1,98 @@
-// Avatar options - you can add more or modify these
+// Avatar options - expanded list
 const avatars = [
-    { icon: 'user' },
-    { icon: 'smile' },
-    { icon: 'ghost' },
-    { icon: 'cat' },
-    { icon: 'dog' },
-    { icon: 'dragon' },
-    { icon: 'fish' },
-    { icon: 'robot' }
+    { icon: 'user', category: 'People' },
+    { icon: 'smile', category: 'People' },
+    { icon: 'user-ninja', category: 'People' },
+    { icon: 'user-astronaut', category: 'People' },
+    { icon: 'user-secret', category: 'People' },
+    { icon: 'ghost', category: 'Creatures' },
+    { icon: 'cat', category: 'Animals' },
+    { icon: 'dog', category: 'Animals' },
+    { icon: 'dragon', category: 'Creatures' },
+    { icon: 'fish', category: 'Animals' },
+    { icon: 'robot', category: 'Technology' },
+    { icon: 'spider', category: 'Animals' },
+    { icon: 'dove', category: 'Animals' },
+    { icon: 'hippo', category: 'Animals' },
+    { icon: 'otter', category: 'Animals' },
+    { icon: 'kiwi-bird', category: 'Animals' },
+    { icon: 'alien', category: 'Creatures' },
+    { icon: 'android', category: 'Technology' },
+    { icon: 'space-shuttle', category: 'Technology' },
+    { icon: 'rocket', category: 'Technology' }
 ];
 
 let currentUser = null;
 let selectedAvatar = null;
 
-// Initialize the avatar grid
+// Initialize the avatar grid with categories
 function initializeAvatarGrid() {
     const avatarGrid = document.getElementById('avatarGrid');
     
-    avatars.forEach((avatar, index) => {
-        const avatarOption = document.createElement('div');
-        avatarOption.className = 'avatar-option';
-        avatarOption.innerHTML = `<i class="fas fa-${avatar.icon}"></i>`;
+    // Group avatars by category
+    const categories = {};
+    avatars.forEach(avatar => {
+        if (!categories[avatar.category]) {
+            categories[avatar.category] = [];
+        }
+        categories[avatar.category].push(avatar);
+    });
+
+    // Create category sections
+    Object.entries(categories).forEach(([category, categoryAvatars]) => {
+        // Add category title
+        const categoryTitle = document.createElement('h4');
+        categoryTitle.className = 'avatar-category-title';
+        categoryTitle.textContent = category;
+        avatarGrid.appendChild(categoryTitle);
+
+        // Create grid for this category
+        const categoryGrid = document.createElement('div');
+        categoryGrid.className = 'avatar-category-grid';
         
-        avatarOption.addEventListener('click', () => selectAvatar(index));
-        avatarGrid.appendChild(avatarOption);
+        categoryAvatars.forEach((avatar, index) => {
+            const avatarOption = document.createElement('div');
+            avatarOption.className = 'avatar-option';
+            avatarOption.innerHTML = `
+                <i class="fas fa-${avatar.icon}"></i>
+                <span class="avatar-name">${avatar.icon.replace(/-/g, ' ')}</span>
+            `;
+            
+            avatarOption.addEventListener('click', () => {
+                selectAvatar(avatar);
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple';
+                avatarOption.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 1000);
+            });
+            
+            categoryGrid.appendChild(avatarOption);
+        });
+
+        avatarGrid.appendChild(categoryGrid);
     });
 }
 
 // Select avatar function
-function selectAvatar(index) {
+function selectAvatar(avatar) {
     const allAvatars = document.querySelectorAll('.avatar-option');
-    allAvatars.forEach(avatar => avatar.classList.remove('selected'));
+    allAvatars.forEach(av => av.classList.remove('selected'));
     
-    const selectedOption = allAvatars[index];
-    selectedOption.classList.add('selected');
+    // Find and select the clicked avatar
+    allAvatars.forEach(av => {
+        if (av.querySelector(`fa-${avatar.icon}`)) {
+            av.classList.add('selected');
+        }
+    });
     
-    selectedAvatar = avatars[index];
+    selectedAvatar = avatar;
     
-    // Update preview
+    // Update preview with animation
     const currentAvatarPreview = document.getElementById('currentAvatar');
-    currentAvatarPreview.innerHTML = `<i class="fas fa-${selectedAvatar.icon}"></i>`;
+    currentAvatarPreview.classList.add('avatar-update');
+    currentAvatarPreview.innerHTML = `<i class="fas fa-${avatar.icon}"></i>`;
+    setTimeout(() => currentAvatarPreview.classList.remove('avatar-update'), 300);
 }
 
 // Load user profile
@@ -63,9 +116,9 @@ function loadUserProfile() {
                         
                         // Set current avatar if exists
                         if (data.avatar) {
-                            const avatarIndex = avatars.findIndex(a => a.icon === data.avatar);
-                            if (avatarIndex !== -1) {
-                                selectAvatar(avatarIndex);
+                            const avatarObj = avatars.find(a => a.icon === data.avatar);
+                            if (avatarObj) {
+                                selectAvatar(avatarObj);
                             }
                         }
                     }
@@ -92,6 +145,10 @@ async function saveProfile() {
     const avatar = selectedAvatar ? selectedAvatar.icon : 'user';
     
     try {
+        const saveButton = document.getElementById('saveProfileButton');
+        saveButton.disabled = true;
+        saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+        
         const db = firebase.firestore();
         const rtdb = firebase.database();
         
@@ -111,12 +168,17 @@ async function saveProfile() {
             lastUpdated: firebase.database.ServerValue.TIMESTAMP
         });
         
-        // Success notification
-        alert('Profile updated successfully!');
-        window.location.href = 'dashboard.html';
+        // Success notification and redirect
+        saveButton.innerHTML = '<i class="fas fa-check"></i> Saved!';
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1000);
     } catch (error) {
         console.error("Error updating profile:", error);
-        // More specific error message
+        const saveButton = document.getElementById('saveProfileButton');
+        saveButton.disabled = false;
+        saveButton.innerHTML = 'Save Changes';
+        
         if (error.code === 'permission-denied') {
             alert('Permission denied. Please sign in again.');
         } else {
